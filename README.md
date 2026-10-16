@@ -63,7 +63,7 @@ $message->threadTokens;       // the references found anywhere in the message, q
 
 - **No receiving endpoint yet.** Verifying the SNS post, deduplicating it, fetching the message from a bounded S3 prefix and routing recipients is 0.2. For now you do that part, and hand the result to `fromSes()`.
 - **No provider signature checks.** Mailgun, SendGrid and Postmark can sign their posts; verifying that is yours until a later version.
-- **Real traffic:** Amazon SES and Mailgun have handled real mail in Odden Cloud; Postmark and SendGrid shapes are tested against fixtures only.
+- **Real traffic:** Amazon SES receiving has handled real mail in Odden Cloud; the Mailgun, Postmark and SendGrid shapes are tested against fixtures (their documented payloads), not live traffic.
 
 ## License
 
