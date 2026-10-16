@@ -1,0 +1,5 @@
+providers:
+  - Odden\InboundMail\InboundMailServiceProvider
+
+env:
+  - CACHE_STORE=array
