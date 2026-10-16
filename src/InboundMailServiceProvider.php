@@ -14,5 +14,9 @@ class InboundMailServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([__DIR__.'/../config/inbound-mail.php' => config_path('inbound-mail.php')], 'inbound-mail-config');
+
+        if ((bool) config('inbound-mail.ses.route.enabled')) {
+            $this->loadRoutesFrom(__DIR__.'/../routes/ses.php');
+        }
     }
 }
