@@ -4,7 +4,7 @@ Receive email in Laravel from Amazon SES, Mailgun, Postmark and SendGrid as one 
 
 An inbound email is attacker-controlled input: the From header is whatever the sender typed, a display name can hold someone else's address, "SPF pass" says nothing about who wrote the message, and half of what arrives is a bounce, an auto-reply or a mailing list. This package reads what each provider posts into one `InboundMessage` and answers those questions the cautious way, so your helpdesk, CRM or "reply by email" feature does not have to.
 
-Status: **0.2, in development.** The message, the sender parser, delivery reports, the provider normalizers, automatic-mail detection and, new in 0.2, a verified, deduplicated Amazon SES receiving endpoint (SNS, S3). It is the inbound code of [Odden Cloud](https://odden.io), extracted.
+Status: **0.2, pre-1.0.** The message, the sender parser, delivery reports, the provider normalizers, automatic-mail detection and, new in 0.2, a verified, deduplicated Amazon SES receiving endpoint (SNS, S3). It is the inbound code of [Odden Cloud](https://odden.io), extracted.
 
 ## What it does
 
