@@ -33,7 +33,9 @@ final readonly class SenderAddress
         }
 
         $email = mb_strtolower(trim((string) $addresses[0]->getEmail()));
-        $valid = filter_var($email, FILTER_VALIDATE_EMAIL) !== false && ! str_contains($email, ' ');
+        // PHP accepts a quoted local part ("<a>"@example.com), which carries quotes and brackets into the address; a sender that
+        // wants to be read as another address would use one. Mail clients almost never send them, so they are refused.
+        $valid = filter_var($email, FILTER_VALIDATE_EMAIL) !== false && preg_match('/[\s<>"\\\\\x00-\x1F\x7F]/', $email) !== 1;
 
         return new self($valid ? $email : null, $valid ? self::cleanName((string) $addresses[0]->getName()) : '');
     }

@@ -23,6 +23,9 @@ it('refuses a From that does not name exactly one valid address', function (stri
     'not an address' => ['Pat Customer'],
     'no domain' => ['pat@'],
     'a space in the address' => ['"pat smith"@example.com'],
+    'a quoted local part holding a bracket (fuzz counterexample)' => ['"<vipm\\^ee"@e.p'],
+    'a quoted local part holding a bracket and an address' => ['"<victim@example.com>"@evil.example'],
+    'a quoted local part, however plain' => ['"pat"@example.com'],
     'too long' => [str_repeat('a', 2001).'@example.com'],
 ]);
 
